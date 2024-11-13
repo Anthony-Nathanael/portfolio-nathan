@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille technologique</title>
+     <!-- icone de l'onglet -->
+     <link rel="shortcut icon" href="./image.png">
+     <style>
+        body {
+            background-color: azure;
+        }
+ </style>
+</head>
+<body>
+    <h1>Veille technologique portant sur "Les vulnérabilités des applications web"</h1>
+
+<p>Les vulnérabilités des applications web sont des faiblesses de sécurité qui permettent aux acteurs malveillants de manipuler le code source, d'obtenir un accès non autorisé, de voler des données. Les plus courantes d'entres elles sont :</p>
+
+<h2>Source : OWASP-10</h2>
+
+    <h3>1. Les conceptions non sécurisées</h3>
+    <p>Ensemble des méthodes qui vont permettent d'analyser régulièrement le code source d'une application afin de prévenir certaines attaques. </p>
+    <p>Par déduction, une conception non sécurisée expose le code d'une application à certaines violations par un pirate.</p>
+    <p>Le meilleur moyens pour sécuriser est d'intégrer la sécurité dans un cycle de vie du développement d'une application (il faut penser à la sécurité lors de la création de l'application et lors des mis à jour de celle-ci).</p>
+
+    <h3>2. Les injections</h3>
+    <p> Une application est sensible aux injections lorsque les données fournies par l'utilisateur ne sont pas validés ou nettoyer avant leur traitement.
+    <p>Bien que la plus populaire soit l'injection SQL, ces failles se produisent lorsque des données non fiables sont envoyées à un interprète. </p>
+    <p>L'objectif du pirate est de faire en sorte que l'application est un comportement qui ne corresponde pas à son rôle. </p>
+    <p>Comme prévention, il faut toujours vérifier les données entrer par un utilisateur et protéger les caractères spéciaux.</p>
+
+    <h3>3. Contrôle d’accès défectueux</h3>
+    <p>Mécanisme qui permet de vérifier qu'un utilisateur accède uniquement à certaines ressourcess. Il empêche un utilisateur d'avoir accès à celui d'autrui car les conséquences peuvent être graves (divulgation d'informations privées, vol d'identité...). <br></p>
+    <p>Pour éviter cela, il serait préférable de mettre en place quelques,éléments pour durcir le contrôle d'accès par exemple avoir un compte administratif et un autre standard pour les tâches quotidiennes. <br></p>
+    <p>Aussi, sauvegarder dans les fichiers journaux les évènements de contrôle d'accès qui peuvent aider en cas de cyberattaque ; appliquer le principe du moindre privilège : les utilisateurs ou programmes ont des accès basique; et si possible utiliser le scanner OWASP ZAP qui permet de détecter les failles. </p>
+
+   <h3>>4. Le manque d'intégrité des données et des logiciels</h3>
+    <p></p>
+
+   <h3>5. Mauvaise configuration de la sécurité</h3> 
+    <p>Elles sont nombreuses : messages d'erreurs, utilisation des mots de passes sur les équipements; l'utilisation des fichiers xml sans vérifier le contenu;le traitement des fichiers xml sans vérification de contenu sur une application via le serveur peut permettre au pirate d'injecter du code qui va faire que le fichier déposer sur le serveur va retourner certaines informations qui vont le permettre de détourner le fonctionnement de l'application. On a aussi  l'activation des fonctionnalités non utilisées comme par exemple laisser des port 80 et 21 activés. </p>
+    <p>Comme prévention, désactiver les services non utilisés avant les procédures de durcissement des systèmes d'exploitations</p>
+
+    <h3>6.Les échecs cryptographiques et exposition de données sensibles</h3>
+    <p>Elles concerne deux types de données : données stockés ( qui sont dans la machine) et les donnée sensibles (données stockées qu'on met à jour sur le serveur web). Ces données doivent être bien sécurisées lorsqu'elles sont transmises d'une machine à une autre (d'où la sensibilité des API). la collecte de carte bancaire par une application en HTTP est très vulnérables car le HTTP n'utilisent pas de chiffrement et peut donc être intercepté par un hacker. Trois principes sont donc recommandés à cela : <br></p>
+    <p>La classsification des données afin de connaître les données sensibles à chiffrer ou protéger. <br></p>
+    <p> Ensuite on a le chiffrement des données lors du transport ou le chiffrement des données transmises qu'on peut faire par le protocole HTTPS. <br></p>
+    <p>Enfin, éviter de  stocker les  données sensibles à moins que cela ne soit inévitable. Il existe aussi des scanners qui permettent de vérifier la version tls utilisée par un serveur pour vérifier s'il y'a des vulnérabilités tels que SSLLAB et SSLYze (sur le serveur local)</p>
+    
+
+    <h3>7.Composants obsolètes</h3>
+    <p>Ils peuvent surgir lors de la conception d'une application par le développeur. Ces éléments constituent une porte d'entrer aux hackers. <br></p>
+    <p>Pour se prémunir, il faut avoir une procédure de mis à jour des composants ; désactiver les composant inutilisables ; suivre les publications sur les vulnérabilités et enfin télécharger les composants à partir d'une source fiable.</p>
+   
+    <h3>8.La supervision et la journalisation insuffisante</h3>
+    <p>Le manque de supervision et de journalisation d'une application rend difficile la détection d'incident, d'intruison et la correction d'une anomalie. <br></p>
+    <p>Pour éviter cela, l'application doit envoyer ses fichiers vers un serveurs de log.</p>
+
+    <h3>9.Falsification des requêtes côté serveur</h3>
+    <p>Elle permet au pirate de forcer l'application à effectuer des requêtes vers un domaine ou serveur spécifique.  </p>
+
+    <h3>10. Identification et authentification de mauvaise qualité</h3>
+    <p>La mauvaise gestion des identifications et des authentifications des utilisateurs constitue un danger pour un système d'information comme par exemple une application qui ne bloque pas pendant un certains temps les utilisateurs qui échouent plusieurs fois à l'authentification est une porte ouverte aux pirates pour utiliser "l'attaque par force brute". <br></p>
+    <p>Le mieux à faire est de changer le mot de passe par défaut ; journaliser les tentatives d'authentification et mettre en place un temporisateur après la succession d'authentification échouer.</p>
+
+    <p>Aujourdh'hui, le piratage de bases de données est de moins en moins touché. Contrairement aux API,</p>
+    <p>Les applications des grandes sociétés (Chrome, Google, Amazon) sont des principales cibles des ransomwares et des Man In The Middle (MITM); Gmail, avec plus de 2,5 milliars d'utilisateurs actifs,  </p>
+     
+
+
+
+
+
+
+
+    <li>
+    <a href="Formulaire de contact.html"> Formulaire de contact</a>
+    </li>   
+
+</body>
+</html>
